@@ -29,7 +29,7 @@
 - It is used in sequential logic to trigger actions at the rising edge of a clock signal, ensuring consistent data capture and synchronization.
 ```
 always @(posedge clk or posedge reset) begin
-    // Logic here
+    // blah blah blah
 end
 ```
 - The block is triggered on the rising edge of clk or reset
@@ -51,6 +51,18 @@ else if (T)
     Q <= ~Q;
 ```
 - If T is high, invert the value of Q (0 becomes 1, and 1 becomes 0)
+
+## Non-blocking Assignment -------->  <=
+
+- The <= operator schedules updates to occur at the end of the current time step.
+- Used in always @(posedge clk or posedge reset) blocks for clocked logic.
+- Allows simultaneous updates to multiple variables, preventing race conditions.
+- Essential for modeling synchronous logic like flip-flops and registers.
+
+```
+p4 <= 4'b0000; // reset p4 to 0
+p4 <= p4 + 1; // increment p4 
+```
 
 ## Module End
 
